@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+@theme {
+  /* Gunakan tanda kutip untuk nama font yang lebih dari satu kata */
+  --font-krona: "Krona One", system-ui;
+  
+  /* Overwrite font sans default */
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-hero-overlay: linear-gradient(
+    to bottom,
+    #1a4d3a 0%, /* Hijau tua solid di bagian paling atas */
+    rgba(26, 77, 58, 0.8) 40%, /* Perlahan memudar ke transparansi 80% */
+    transparent 100% /* Transparan penuh di bagian bawah */
+  );
+  
+}
