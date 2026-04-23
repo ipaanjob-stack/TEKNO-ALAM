@@ -23,7 +23,7 @@
         <nav class="max-w-7xl mx-auto">
             <div class="container mx-auto px-4 py-3 flex items-center justify-between">
                 <img src="assets/img/logo.png" alt="MySite" class="h-8">
-                <h1 class="text-amber-50 font-krona hidden md:block">Delivering Knowledge Beyond Chemicals</h1>
+                <h1 class="text-amber-50 text-[8px] sm:text-[10px] text-center font-krona">Delivering Knowledge<br>Beyond Chemicals</h1>
                 <!-- Desktop Nav -->
                 <ul class="hidden md:flex space-x-6 px-12">
                     <li><a href="index.html" class="text-gray-50 hover:text-yellow-400 font-semibold transition">Home</a></li>
@@ -201,5 +201,221 @@
         iconClose.classList.toggle('hidden');
     });
 </script>
+<style>
+  /* === SCROLL REVEAL === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+  }
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+  }
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  /* Stagger delay helpers */
+  .delay-1 { transition-delay: 0.1s; }
+  .delay-2 { transition-delay: 0.2s; }
+  .delay-3 { transition-delay: 0.3s; }
+  .delay-4 { transition-delay: 0.4s; }
+  .delay-5 { transition-delay: 0.5s; }
+
+  /* === NAVBAR SCROLL SHRINK === */
+  nav.scrolled-nav > div {
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.4rem !important;
+  }
+
+  /* === HOVER LIFT FOR CARDS === */
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(11,112,56,0.18);
+  }
+
+  /* === PULSE GLOW for CTA button === */
+  @keyframes pulse-border {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(217,119,6,0.5); }
+    50%       { box-shadow: 0 0 0 10px rgba(217,119,6,0); }
+  }
+  .pulse-cta {
+    animation: pulse-border 2.2s ease-in-out infinite;
+  }
+
+  /* === FLOAT for hero logo/images === */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-10px); }
+  }
+  .float-anim {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* === COUNT UP numbers === */
+  .count-up { display: inline-block; }
+
+  /* === NAV LINK underline slide === */
+  nav a {
+    position: relative;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 0; height: 2px;
+    background: #facc15;
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after { width: 100%; }
+</style>
+
+<script>
+(function() {
+  /* ---- Scroll Reveal ---- */
+  function initReveal() {
+    const els = document.querySelectorAll('section, .bg-\\[\\#0B7038\\]\\/75, .bg-\\[\\#0A6335\\], .bg-white\\/15, .rounded-3xl, .rounded-\\[50px\\]');
+    const targets = [];
+    // Auto-tag major block children for reveal
+    document.querySelectorAll('section > div, section > .grid > *, .max-w-7xl > .grid > *, .max-w-6xl > .grid > *').forEach((el, i) => {
+      if (!el.classList.contains('reveal') && !el.classList.contains('reveal-left') && !el.classList.contains('reveal-right')) {
+        el.classList.add('reveal');
+        if (i % 3 === 1) el.classList.add('delay-1');
+        else if (i % 3 === 2) el.classList.add('delay-2');
+      }
+      targets.push(el);
+    });
+    // Also tag direct section headings
+    document.querySelectorAll('section h1, section h2, .max-w-7xl > div > h1, .max-w-7xl > div > h2').forEach((el, i) => {
+      if (!el.classList.contains('reveal')) {
+        el.classList.add('reveal');
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+  }
+
+  /* ---- Hover Lift for Cards ---- */
+  function initHoverLift() {
+    const cards = document.querySelectorAll('.rounded-3xl, .rounded-\\[50px\\]');
+    cards.forEach(card => {
+      // Avoid adding to wrappers that contain cards (prevents double-lift)
+      if (!card.querySelector('.rounded-3xl') && !card.closest('nav')) {
+        card.classList.add('hover-lift');
+      }
+    });
+  }
+
+  /* ---- Pulse CTA ---- */
+  function initPulseCTA() {
+    document.querySelectorAll('a[href="contact.html"]').forEach(btn => {
+      if (btn.classList.contains('border-amber-600') || btn.textContent.trim().includes('CONTACT')) {
+        btn.classList.add('pulse-cta');
+      }
+    });
+  }
+
+  /* ---- Float division logos ---- */
+  function initFloat() {
+    // Division logo images (large logos in cards)
+    document.querySelectorAll('.rounded-\\[50px\\] img, .float-target').forEach(img => {
+      img.classList.add('float-anim');
+    });
+  }
+
+  /* ---- Navbar shrink on scroll ---- */
+  function initNavShrink() {
+    const navbar = document.querySelector('nav');
+    if (!navbar) return;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled-nav');
+      } else {
+        navbar.classList.remove('scrolled-nav');
+      }
+    }, { passive: true });
+  }
+
+  /* ---- Count-up for stat numbers ---- */
+  function initCountUp() {
+    const statsMap = [
+      { text: '5', suffix: ' Years' },
+      { text: '95', suffix: '%' },
+      { text: '100', suffix: '%' },
+    ];
+    document.querySelectorAll('h1').forEach(el => {
+      const t = el.textContent.trim();
+      statsMap.forEach(stat => {
+        if (t.startsWith(stat.text) && t.includes(stat.suffix.trim())) {
+          el.dataset.countTarget = parseInt(stat.text);
+          el.dataset.countSuffix = stat.suffix;
+          el.classList.add('count-up');
+        }
+      });
+    });
+
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.countTarget);
+          const suffix = el.dataset.countSuffix || '';
+          let start = 0;
+          const step = Math.ceil(target / 40);
+          const timer = setInterval(() => {
+            start = Math.min(start + step, target);
+            el.textContent = start + suffix;
+            if (start >= target) clearInterval(timer);
+          }, 30);
+          countObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
+  }
+
+  /* ---- Page fade-in on load ---- */
+  document.documentElement.style.opacity = '0';
+  window.addEventListener('DOMContentLoaded', () => {
+    document.documentElement.style.transition = 'opacity 0.5s ease';
+    document.documentElement.style.opacity = '1';
+    initReveal();
+    initHoverLift();
+    initPulseCTA();
+    initFloat();
+    initNavShrink();
+    initCountUp();
+  });
+})();
+</script>
+
 </body>
 </html>
