@@ -19,150 +19,187 @@
 
 <body class="bg-gray-50">
 
-<!-- NAVBAR -->
-
-    <div class="bg-linear-to-br from-[#0B7038] to-[#1ee377] font-krona text-xs rounded-b-[50px]">
-        <nav class="w-7xl mx-auto">
+  <div class="bg-gradient-to-br from-[#0B7038] to-[#1ee377] font-krona text-xs rounded-b-[50px] shadow-md relative z-50">
+        <nav class="max-w-7xl mx-auto">
             <div class="container mx-auto px-4 py-3 flex items-center justify-between">
                 <img src="assets/img/logo.png" alt="MySite" class="h-8">
-                <ul class="flex space-x-6 px-12">
-                    <li><a href="index.html" class="text-gray-50 hover:text-yellow-400">Home</a></li>
-                    <li><a href="about.html" class="text-gray-50 hover:text-yellow-400">About</a></li>
-                    <li><a href="division.html" class="text-gray-50 hover:text-yellow-400">Division</a></li>
-                    <li><a href="contact.html" class="text-gray-50 hover:text-yellow-400">Contact</a></li>
+                <h1 class="text-amber-50 font-krona hidden md:block">Delivering Knowledge Beyond Chemicals</h1>
+                <!-- Desktop Nav -->
+                <ul class="hidden md:flex space-x-6 px-12">
+                    <li><a href="index.html" class="text-gray-50 hover:text-yellow-400 font-semibold transition">Home</a></li>
+                    <li><a href="about.html" class="text-gray-50 hover:text-yellow-400 font-semibold transition">About</a></li>
+                    <li><a href="division.html" class="text-gray-50 hover:text-yellow-400 font-semibold transition">Divisions</a></li>
+                    <li><a href="contact.html" class="text-white hover:text-yellow-400 font-bold">Contact</a></li>
+                </ul>
+                <!-- Hamburger -->
+                <button id="menuBtn" class="md:hidden text-white focus:outline-none p-2" aria-label="Toggle menu">
+                    <svg id="iconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg id="iconClose" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4 rounded-b-[50px]">
+                <ul class="flex flex-col space-y-2 px-4">
+                    <li><a href="index.html" class="block text-gray-50 hover:text-yellow-400 py-2 border-b border-green-700">Home</a></li>
+                    <li><a href="about.html" class="block text-gray-50 hover:text-yellow-400 py-2 border-b border-green-700">About</a></li>
+                    <li><a href="division.html" class="block text-gray-50 hover:text-yellow-400 py-2 border-b border-green-700">Divisions</a></li>
+                    <li><a href="contact.html" class="block text-white font-bold py-2">Contact</a></li>
                 </ul>
             </div>
         </nav>
     </div>
 
 <!-- BODY CONTENT -->
-    <section class="max-w-7xl mx-auto px-4 py-12 overflow-hidden">
-        <div class="grid grid-cols-2 gap-10 items-center">
-            <div class="aspect-square max-w-xl relative shadow-lg group justify-center items-center">
-                <img src="assets/img/chemical.jpg" class="w-full aspect-square object-cover rounded-2xl">
-                <div class="bg-linear-0 from-gray-950 from-10% to-transparent to-30% absolute inset-0 rounded-2xl"></div >
-                    <img src="assets/img/logo.png" class="absolute bottom-10 left-45 flex justify-center items-center gap-3 w-[187px] h-[46px]">
-                </div>
+    <section class="max-w-7xl mx-auto px-4 py-8 md:py-12 overflow-hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
+            <!-- Image: hidden on mobile to save space, shown on desktop -->
+            <div class="hidden md:block aspect-square max-w-xl relative shadow-lg group justify-center items-center">
+                <img src="assets/img/chemical.jpg" class="w-full h-full object-cover rounded-2xl">
+                <div class="bg-linear-0 from-gray-950 from-10% to-transparent to-30% absolute inset-0 rounded-2xl"></div>
+                <img src="assets/img/logo.png" class="absolute bottom-10 left-45 flex justify-center items-center gap-3 w-[187px] h-[46px]">
+            </div>
+            <!-- Mobile: show smaller image on top -->
+            <div class="md:hidden relative shadow-lg rounded-2xl overflow-hidden">
+                <img src="assets/img/chemical.jpg" class="w-full h-48 object-cover rounded-2xl">
+                <div class="bg-linear-0 from-gray-950 from-10% to-transparent to-30% absolute inset-0 rounded-2xl"></div>
+                <img src="assets/img/logo.png" class="absolute bottom-4 left-1/2 -translate-x-1/2 w-32 h-auto">
+            </div>
 
             <div class="w-full items-center">
-                <h1 class="font-bold text-[64px] text-[#0B7038]">About Us</h1>
-                <p class="text-[20px] text-[#0B7038]"> CV Tekno Alam Lestari is a solution-driven company specializing in water treatment, wastewater treatment, and industrial chemical supply for various industries.<br>
+                <h1 class="font-bold text-4xl md:text-[64px] text-[#0B7038]">About Us<span class="font-light text-3xl md:text-[52px] text-gray-500"> | Tentang Kita</span></h1>
+                <p class="text-base md:text-[20px] text-[#0B7038]"> CV Tekno Alam Lestari is a solution-driven company specializing in water treatment, waste water treatment, and industrial chemical supply for various industries.<br>
+                    <br>
+                <span class="text-gray-500">
+                    CV Tekno Alam Lestari adalah perusahaan yang berfokus pada solusi, bergerak di bidang pengolahan air, pengolahan air limbah, serta penyediaan bahan kimia industri untuk berbagai sektor industri.
+                    <br>
+                </span>
 
-                <br>We help companies optimize their groundwater treatment (WTP) and wastewater treatment (WWTP) systems through practical, efficient, and cost-effective solutions based on real field conditions. Our approach focuses on diagnosing system problems, improving treatment performance, and ensuring compliance with environmental standards.<br>
+                <br>We help companies optimize their groundwater treatment (WTP) and waste water treatment (WWTP) systems through practical, efficient, and cost-effective solutions based on real field conditions. Our approach focuses on diagnosing system problems, improving treatment performance, and ensuring compliance with environmental standards.
+                <br><br>
+                <span class="text-gray-500">
+                    Kami membantu perusahaan dalam mengoptimalkan sistem pengolahan air tanah (WTP) dan air limbah (WWTP) melalui pendekatan yang praktis, efisien, dan ekonomis, berdasarkan kondisi nyata di lapangan. Pendekatan kami menitikberatkan pada analisa permasalahan sistem, peningkatan performa pengolahan, serta pemenuhan standar lingkungan yang berlaku.
+                    <br></span>
 
-                <br>Through our integrated divisions — Hydroflox (wastewater treatment), FixFlow (groundwater treatment and filtration), and Talchemic (industrial chemical supplier) — we provide end-to-end support, from system analysis and jar testing to chemical supply and operational optimization.<br>
-
+                <br>Through our integrated divisions — Hydroflox (waste water treatment), FixFlow (groundwater treatment and filtration), and Talchemic (industrial chemical supplier) — we provide end-to-end support, from system analysis and jar testing to chemical supply and operational optimization.<br>
+                <br>    
+                <span class="text-gray-500">Melalui divisi terintegrasi kami — Hydroflox (pengolahan air limbah), FixFlow (pengolahan dan filtrasi air tanah), dan Talchemic (penyedia bahan kimia industri) — kami memberikan dukungan menyeluruh, mulai dari analisa sistem dan uji coba (jar test), hingga penyediaan bahan kimia dan optimalisasi operasional.<br></span>
                 <br>Our mission is to improve water treatment efficiency, reduce operational costs, and ensure stable, compliant system performance for every client.
-
-                <br>At CV Tekno Alam Lestari, we don’t just supply chemicals — we deliver complete water treatment solutions..</p>
+                <br><br>   
+                <span class="text-gray-500">Tujuan kami adalah meningkatkan efisiensi pengolahan air, menekan biaya operasional, serta memastikan sistem berjalan stabil dan sesuai standar.
+                    <br>
+                </span>
+                <br>At CV Tekno Alam Lestari, we don't just supply chemicals — we deliver complete water treatment solutions.
+                <br><br>
+                <span class="text-gray-500">Di CV Tekno Alam Lestari, kami tidak hanya menjual bahan kimia — kami memberikan solusi pengolahan air secara menyeluruh.</span>
+                </p>
             </div>
         </div>
     </section>
 
 <!-- VISI MISI -->
-
     <section class="bg-linear-to-tr from-[#20d270] to-[#064522] rounded-t-[50px] overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 py-12 ">
-            <h2 class="font-bold text-[64px] text-[#ffffff] text-center p-5">Vision and Mission</h2>
-            <div class="grid grid-cols-1 gap-10 items-center">
-                <div class="bg-green-800 rounded-3xl px-6 py-6 gap-5 border-lime-400 border-2">
-                    <h1 class="text-gray-50 text-center font-medium text-[64px] py-6">Vision</h1>
-                    <p class="text-[20px] text-[#ffffff] text-center">To become a trusted partner in water treatment and wastewater treatment solutions, supporting industries <br>
-                         with efficient, reliable, and sustainable groundwater and industrial water management systems.</p>
-                </div>
-                    <div class="bg-green-800 rounded-3xl px-6 py-6 gap-5 border-lime-400 border-2">
-                        <h1 class="text-gray-50 text-center font-medium text-[64px] py-6">Mission</h1>
-                        <p class="text-[20px] text-[#ffffff] text-center">To provide effective water treatment and wastewater treatment solutions
-                            <br>through system analysis, testing, and optimization
-                            <br>
-                            <br>
-                            To develop customized treatment strategies for industrial wastewater and groundwater systems
-                            <br>
-                            <br>
-                            To optimize chemical usage for cost efficiency and stable system performance
-                            <br>
-                            <br>
-                            To deliver continuous technical support for WWTP and WTP operations
-                            <br>
-                            <br>
-                            To ensure reliable and consistent industrial chemical supply for various industries
-                        </p>
-                    </div>
-                </div>
-
-<!-- STRENGTH -->
-
-                <div class="pt-6">
-                    <h2 class="text-[64px] font-bold text-gray-50 text-center pt-7">The Strength of Our Divisions</h2>
-                    <p class="text-[24px] text-[#b6ff77] text-center">A Holistic Approach to Environmental Management<br>
-                    What sets Tekno Alam Lestari apart is our integrated structure. By housing<br> 
-                    three specialized divisions under one roof, we offer a seamless synergy between<br>
-                    technology, engineering, and chemistry.</p>"
+        <div class="max-w-7xl mx-auto px-4 py-10 md:py-12">
+            <h2 class="font-bold text-4xl md:text-[64px] text-[#ffffff] text-center p-5">Vision and Mission</h2>
+            <p class="text-3xl md:text-5xl text-center text-gray-50 font-light">Visi dan Misi<br></p>
+            
+            <div class="grid grid-cols-1 gap-6 md:gap-10 items-center py-6 md:py-8">
+                <div class="bg-green-800 rounded-3xl px-4 md:px-6 py-6 gap-5 border-lime-400 border-2">
+                    <h1 class="text-gray-50 text-center font-medium text-4xl md:text-[64px] py-4 md:py-6">Vision <span class="font-light"> | Visi</span></h1>
+                    <p class="text-base md:text-[20px] text-[#ffffff] text-center">To become a trusted partner in water treatment and waste water treatment solutions, supporting industries with efficient, reliable, and sustainable groundwater and industrial water management systems.</p>
+                    <p class="text-center text-[#3ae788] text-sm md:text-base mt-2">Menjadi mitra terpercaya dalam solusi pengolahan air dan air limbah, yang mendukung industri melalui sistem pengelolaan air tanah dan air industri yang efisien, andal, dan berkelanjutan.</p>
                 </div>
                 
-                <div class="flex items-center justify-center gap-10 pt-10">
-                    <div>
-                        <img src="assets/img/LOGO HYDROFLOX.png" alt="HydrofloX" class="w-xs h-auto">
-                    </div>
-                    <div>
-                        <img src="assets/img/LOGO FIXFLOW.png" alt="FixFlow" class="w-36 h-auto">
-                    </div>
-                    <div>
-                        <img src="assets/img/LOGO TALCHEMIC.png" alt="Talchemic" class="w-72 h-auto">
-                    </div>
+                <div class="bg-green-800 rounded-3xl px-4 md:px-6 py-6 gap-5 border-lime-400 border-2">
+                    <h1 class="text-gray-50 text-center font-medium text-4xl md:text-[64px] py-4 md:py-6">Mission<span class="font-light"> | Misi</span></h1>
+                    <p class="text-base md:text-[20px] text-[#ffffff] text-center">
+                        To provide effective water treatment and waste water treatment solutions through system analysis, testing, and optimization
+                        <br><span class="text-[#3ae788]">Menyediakan solusi pengolahan air dan air limbah yang efektif melalui analisa sistem, pengujian, dan optimalisasi</span>
+                        <br><br>
+                        To develop customized treatment strategies for industrial waste water and groundwater systems
+                        <br><span class="text-[#3ae788]">Mengembangkan strategi pengolahan yang disesuaikan dengan kondisi air limbah industri dan air tanah</span>
+                        <br><br>
+                        To optimize chemical usage for cost efficiency and stable system performance
+                        <br><span class="text-[#3ae788]">Mengoptimalkan penggunaan bahan kimia untuk mencapai efisiensi biaya dan kestabilan performa sistem</span>
+                        <br><br>
+                        To deliver continuous technical support for WWTP and WTP operations
+                        <br><span class="text-[#3ae788]">Memberikan dukungan teknis secara berkelanjutan untuk operasional WWTP dan WTP</span>
+                        <br><br>
+                        To ensure reliable and consistent industrial chemical supply for various industries
+                        <br><span class="text-[#3ae788]">Menjamin ketersediaan bahan kimia industri yang andal dan konsisten untuk berbagai kebutuhan industri</span>
+                    </p>
                 </div>
             </div>
+
+<!-- REACH US -->
+            <div class="pt-4 md:pt-6">
+                <h2 class="text-3xl md:text-[64px] font-bold text-gray-50 text-center pt-5 md:pt-7">Reach Us Now!</h2>
+                <p class="text-base md:text-[24px] text-[#b6ff77] text-center px-4">Facing issues with groundwater or waste water treatment? <br>
+                    Let us help you diagnose and optimize your system.<br>
+                    technology, engineering, and chemistry.<br><br>
+                    <span class="text-2xl md:text-5xl font-bold text-gray-50">Get a free consultation and jar test to identify the most effective and cost-efficient solution for your operation</span>
+                </p>
+            </div>
+            
+            <!-- Division Logos -->
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 pt-8 md:pt-10">
+                <div><img src="assets/img/LOGO HYDROFLOX.png" alt="HydrofloX" class="w-48 md:w-xs h-auto mx-auto"></div>
+                <div><img src="assets/img/LOGO FIXFLOW.png" alt="FixFlow" class="w-28 md:w-36 h-auto mx-auto"></div>
+                <div><img src="assets/img/LOGO TALCHEMIC.png" alt="Talchemic" class="w-56 md:w-72 h-auto mx-auto"></div>
+            </div>
         </div>
+    </section>
 
 <!-- FOOTER -->
-
-                <div class="bg-[#094122] px-12 py-6 flex justify-between items-center">
-
-                    <!-- Contact Info -->
-                    <div class="space-y-3">
-                        <div class="flex items-center gap-3">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                stroke="#6b7280" stroke-width="2" class="shrink-0">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.1a16 16 0 0 0 6 6l.46-.46a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/>
-                            </svg>
-                            <div>
-                                <div class="text-gray-400 text-xs">Contact us</div>
-                                <div class="text-gray-300 text-sm font-medium">0822-6427-8158 (WA)</div>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-3">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                stroke="#6b7280" stroke-width="2" class="mt-0.5 shrink-0">
-                                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
-                                <circle cx="12" cy="10" r="3"/>
-                            </svg>
-                            <div class="text-gray-400 text-xs leading-relaxed">
-                                Jl. Rungkut Industri III No. 33, Rungkut Mananggal, Kec. <br>
-                                 Gunung Anyar, Surabaya, Jawa Timur 60293
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#99a1af"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h404q-4 20-4 40t4 40H160l320 200 146-91q14 13 30.5 22.5T691-572L480-440 160-640v400h640v-324q23-5 43-14t37-22v360q0 33-23.5 56.5T800-160H160Zm0-560v480-480Zm515 45q-35-35-35-85t35-85q35-35 85-35t85 35q35 35 35 85t-35 85q-35 35-85 35t-85-35Z"/></svg>
-                            <div class="text-gray-400 text-xs leading-relaxed">
-                                teknoalamlestari@gmail.com
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Logo & Copyright -->
-                    <div class="text-right">
-                        <div class="flex items-center gap-3 justify-end mb-2">
-                            <div class="flex">
-                                <img src="assets/img/logo.png" alt="logo" class="h-10">
-                            </div>
-                        </div>
-                        <div class="text-gray-500 text-xs">©2026 CV. Tekno Alam Lestari</div>
-                    </div>
+    <div class="bg-[#094122] px-6 md:px-12 py-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-0">
+        <!-- Contact Info -->
+        <div class="space-y-3">
+            <div class="flex items-center gap-3">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" class="shrink-0">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.1a16 16 0 0 0 6 6l.46-.46a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/>
+                </svg>
+                <div>
+                    <div class="text-gray-400 text-xs">Contact us</div>
+                    <div class="text-gray-300 text-sm font-medium">0822-6427-8158 (WA)</div>
+                </div>
             </div>
+            <div class="flex items-start gap-3">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" class="mt-0.5 shrink-0">
+                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <div class="text-gray-400 text-xs leading-relaxed">
+                    Jl. Rungkut Industri III No. 33, Rungkut Mananggal, Kec.<br>
+                    Gunung Anyar, Surabaya, Jawa Timur 60293
+                </div>
+            </div>
+            <div class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#99a1af"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h404q-4 20-4 40t4 40H160l320 200 146-91q14 13 30.5 22.5T691-572L480-440 160-640v400h640v-324q23-5 43-14t37-22v360q0 33-23.5 56.5T800-160H160Zm0-560v480-480Zm515 45q-35-35-35-85t35-85q35-35 85-35t85 35q35 35 35 85t-35 85q-35 35-85 35t-85-35Z"/></svg>
+                <div class="text-gray-400 text-xs leading-relaxed">teknoalamlestari@gmail.com</div>
+            </div>
+        </div>
+        <!-- Logo & Copyright -->
+        <div class="text-left md:text-right">
+            <div class="flex items-center gap-3 justify-start md:justify-end mb-2">
+                <img src="assets/img/logo.png" alt="logo" class="h-10">
+            </div>
+            <div class="text-gray-500 text-xs">©2026 CV. Tekno Alam Lestari</div>
+        </div>
+    </div>
 
-
-
-
+<script>
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    const iconOpen = document.getElementById('iconOpen');
+    const iconClose = document.getElementById('iconClose');
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+    });
+</script>
 </body>
+</html>
